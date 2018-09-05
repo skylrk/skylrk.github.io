@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Java,Maven,SpringBoot," />
 
 
 
@@ -79,16 +79,21 @@
 
 
 
-<meta name="description" content="勿忘初心  方得始终">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Skylrk">
-<meta property="og:url" content="https://skylrk.github.io/index.html">
+<meta name="description" content="SpringBoot 多模块项目maven 多项目通常是一个父模块和 n 个子模块构成，好处是让每个模块独立,高内聚低耦合。各自模块之间保持自己的完整性。网上有很多 Demo，不过不是很详细。这里纪录一下。 项目构建创建父工程正常在 idea 创建 SpringBoot 项目，只留下 pom 文件，其他可以全部删除。 在 pom 文件添加 n 个子模块。 123456789101112131415">
+<meta name="keywords" content="Java,Maven,SpringBoot">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SpringBoot多模块项目">
+<meta property="og:url" content="https://skylrk.github.io/2018/09/01/SpringBoot多模块项目/index.html">
 <meta property="og:site_name" content="Skylrk">
-<meta property="og:description" content="勿忘初心  方得始终">
+<meta property="og:description" content="SpringBoot 多模块项目maven 多项目通常是一个父模块和 n 个子模块构成，好处是让每个模块独立,高内聚低耦合。各自模块之间保持自己的完整性。网上有很多 Demo，不过不是很详细。这里纪录一下。 项目构建创建父工程正常在 idea 创建 SpringBoot 项目，只留下 pom 文件，其他可以全部删除。 在 pom 文件添加 n 个子模块。 123456789101112131415">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://skylrk.github.io/2018/09/01/SpringBoot多模块项目/image-index.png">
+<meta property="og:image" content="https://skylrk.github.io/2018/09/01/SpringBoot多模块项目/build.jpg">
+<meta property="og:updated_time" content="2018-09-05T07:06:54.183Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Skylrk">
-<meta name="twitter:description" content="勿忘初心  方得始终">
+<meta name="twitter:title" content="SpringBoot多模块项目">
+<meta name="twitter:description" content="SpringBoot 多模块项目maven 多项目通常是一个父模块和 n 个子模块构成，好处是让每个模块独立,高内聚低耦合。各自模块之间保持自己的完整性。网上有很多 Demo，不过不是很详细。这里纪录一下。 项目构建创建父工程正常在 idea 创建 SpringBoot 项目，只留下 pom 文件，其他可以全部删除。 在 pom 文件添加 n 个子模块。 123456789101112131415">
+<meta name="twitter:image" content="https://skylrk.github.io/2018/09/01/SpringBoot多模块项目/image-index.png">
 
 
 
@@ -118,13 +123,13 @@
 
 
 
-  <link rel="canonical" href="https://skylrk.github.io/"/>
+  <link rel="canonical" href="https://skylrk.github.io/2018/09/01/SpringBoot多模块项目/"/>
 
 
 
 
 
-  <title>Skylrk</title>
+  <title>SpringBoot多模块项目 | Skylrk</title>
   
 
 
@@ -153,8 +158,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -237,9 +241,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -269,9 +273,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/09/01/SpringBoot多模块项目/" itemprop="url">SpringBoot多模块项目</a></h1>
+          <h1 class="post-title" itemprop="name headline">SpringBoot多模块项目</h1>
         
 
         <div class="post-meta">
@@ -321,9 +323,7 @@
       
 
       
-        
-          
-            <h1 id="SpringBoot-多模块项目"><a href="#SpringBoot-多模块项目" class="headerlink" title="SpringBoot 多模块项目"></a>SpringBoot 多模块项目</h1><p>maven 多项目通常是一个父模块和 n 个子模块构成，好处是让每个模块独立,高内聚低耦合。各自模块之间保持自己的完整性。网上有很多 Demo，不过不是很详细。这里纪录一下。</p>
+        <h1 id="SpringBoot-多模块项目"><a href="#SpringBoot-多模块项目" class="headerlink" title="SpringBoot 多模块项目"></a>SpringBoot 多模块项目</h1><p>maven 多项目通常是一个父模块和 n 个子模块构成，好处是让每个模块独立,高内聚低耦合。各自模块之间保持自己的完整性。网上有很多 Demo，不过不是很详细。这里纪录一下。</p>
 <h2 id="项目构建"><a href="#项目构建" class="headerlink" title="项目构建"></a>项目构建</h2><h3 id="创建父工程"><a href="#创建父工程" class="headerlink" title="创建父工程"></a>创建父工程</h3><p>正常在 idea 创建 SpringBoot 项目，只留下 pom 文件，其他可以全部删除。</p>
 <p>在 pom 文件添加 n 个子模块。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span><br><span class="line">&lt;project xmlns=&quot;http://maven.apache.org/POM/4.0.0&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span><br><span class="line">         xsi:schemaLocation=&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&quot;&gt;</span><br><span class="line">    &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;</span><br><span class="line"></span><br><span class="line">    &lt;groupId&gt;com.example&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;sky-admin&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;0.0.1-SNAPSHOT&lt;/version&gt;</span><br><span class="line">    &lt;!-- 父模块打包类型必须为pom --&gt;</span><br><span class="line">    &lt;packaging&gt;pom&lt;/packaging&gt;</span><br><span class="line"></span><br><span class="line">    &lt;name&gt;sky-admin&lt;/name&gt;</span><br><span class="line">    &lt;description&gt;Demo project for Spring Boot&lt;/description&gt;</span><br><span class="line"></span><br><span class="line">    &lt;parent&gt;</span><br><span class="line">        &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">        &lt;artifactId&gt;spring-boot-starter-parent&lt;/artifactId&gt;</span><br><span class="line">        &lt;version&gt;1.5.15.RELEASE&lt;/version&gt;</span><br><span class="line">        &lt;relativePath/&gt;</span><br><span class="line">    &lt;/parent&gt;</span><br><span class="line"></span><br><span class="line">    &lt;modules&gt;</span><br><span class="line">        &lt;module&gt;sky-admin-common&lt;/module&gt;</span><br><span class="line">        &lt;module&gt;sky-admin-user&lt;/module&gt;</span><br><span class="line">        &lt;module&gt;sky-admin-web&lt;/module&gt;</span><br><span class="line">    &lt;/modules&gt;</span><br><span class="line"></span><br><span class="line">    &lt;properties&gt;</span><br><span class="line">        &lt;project.build.sourceEncoding&gt;UTF-8&lt;/project.build.sourceEncoding&gt;</span><br><span class="line">        &lt;project.reporting.outputEncoding&gt;UTF-8&lt;/project.reporting.outputEncoding&gt;</span><br><span class="line">        &lt;java.version&gt;1.8&lt;/java.version&gt;</span><br><span class="line">    &lt;/properties&gt;</span><br><span class="line"></span><br><span class="line">    &lt;dependencyManagement&gt;</span><br><span class="line">        &lt;dependencies&gt;</span><br><span class="line">            &lt;dependency&gt;</span><br><span class="line">                &lt;groupId&gt;com.example&lt;/groupId&gt;</span><br><span class="line">                &lt;artifactId&gt;sky-admin-common&lt;/artifactId&gt;</span><br><span class="line">                &lt;version&gt;0.0.1-SNAPSHOT&lt;/version&gt;</span><br><span class="line">            &lt;/dependency&gt;</span><br><span class="line">            &lt;dependency&gt;</span><br><span class="line">                &lt;groupId&gt;com.example&lt;/groupId&gt;</span><br><span class="line">                &lt;artifactId&gt;sky-admin-user&lt;/artifactId&gt;</span><br><span class="line">                &lt;version&gt;0.0.1-SNAPSHOT&lt;/version&gt;</span><br><span class="line">            &lt;/dependency&gt;</span><br><span class="line">            &lt;dependency&gt;</span><br><span class="line">                &lt;groupId&gt;com.example&lt;/groupId&gt;</span><br><span class="line">                &lt;artifactId&gt;sky-admin-web&lt;/artifactId&gt;</span><br><span class="line">                &lt;version&gt;0.0.1-SNAPSHOT&lt;/version&gt;</span><br><span class="line">            &lt;/dependency&gt;</span><br><span class="line">        &lt;/dependencies&gt;</span><br><span class="line">    &lt;/dependencyManagement&gt;</span><br><span class="line">&lt;/project&gt;</span><br></pre></td></tr></table></figure>
@@ -371,8 +371,6 @@
 <p>大项目业务功能非常多的就先是分层，再分模块</p>
 <p>当然了现在都倡导微服务。</p>
 
-          
-        
       
     </div>
     
@@ -387,14 +385,24 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/Java/" rel="tag"># Java</a>
+          
+            <a href="/tags/Maven/" rel="tag"># Maven</a>
+          
+            <a href="/tags/SpringBoot/" rel="tag"># SpringBoot</a>
+          
+        </div>
+      
+
+      
+      
+      
 
       
 
       
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -404,10 +412,11 @@
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -415,6 +424,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -435,8 +448,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -491,6 +513,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#SpringBoot-多模块项目"><span class="nav-number">1.</span> <span class="nav-text">SpringBoot 多模块项目</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#项目构建"><span class="nav-number">1.1.</span> <span class="nav-text">项目构建</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建父工程"><span class="nav-number">1.1.1.</span> <span class="nav-text">创建父工程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建子模块"><span class="nav-number">1.1.2.</span> <span class="nav-text">创建子模块</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#编写业务代码"><span class="nav-number">1.2.</span> <span class="nav-text">编写业务代码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#运行打包"><span class="nav-number">1.3.</span> <span class="nav-text">运行打包</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#打包"><span class="nav-number">1.3.1.</span> <span class="nav-text">打包</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#完工"><span class="nav-number">1.4.</span> <span class="nav-text">完工</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -631,6 +669,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 

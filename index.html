@@ -252,6 +252,132 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://skylrk.github.io/2018/09/18/SpringSecurity小记-1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="skylrk">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Skylrk">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/09/18/SpringSecurity小记-1/" itemprop="url">SpringSecurity小记 - @Secured(), @PreAuthorize() 及 @RolesAllowed()</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-18T15:17:07+08:00">
+                2018-09-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Spring-Security-小记"><a href="#Spring-Security-小记" class="headerlink" title="Spring Security 小记"></a>Spring Security 小记</h1><p>记录一下Spring Security（版本为4） 中的  @Secured(), @PreAuthorize() 及 @RolesAllowed()</p>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>Spring Security 和Shiro 可以说是安全框架的唯二选择了。 Shiro，比较简单和灵活，简单够用。而Spring Security的功能和shiro都差不多，复杂一点，权限细粒度更高。但是因为SpringBoot，还是很值得尝试的。 Spring 全家桶 ， 一用便知道。</p>
+<h2 id="权限注解"><a href="#权限注解" class="headerlink" title="权限注解"></a>权限注解</h2><p>通常采用@Secured ，@PreAuthorize和@RolesAllowed 来对方法进行权限控制。<br>使用这些注解，先要配置@EnableGlobalMethodSecurity(securedEnabled = true)</p>
+<p>这里看一下官网的例子<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">BankService</span> </span>&#123;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Secured</span>(<span class="string">"IS_AUTHENTICATED_ANONYMOUSLY"</span>)</span><br><span class="line"><span class="function"><span class="keyword">public</span> Account <span class="title">readAccount</span><span class="params">(Long id)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Secured</span>(<span class="string">"IS_AUTHENTICATED_ANONYMOUSLY"</span>)</span><br><span class="line"><span class="keyword">public</span> Account[] findAccounts();</span><br><span class="line"></span><br><span class="line"><span class="meta">@Secured</span>(<span class="string">"ROLE_TELLER"</span>)</span><br><span class="line"><span class="function"><span class="keyword">public</span> Account <span class="title">post</span><span class="params">(Account account, <span class="keyword">double</span> amount)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>@Secured和@PreAuthorize用法基本一样，但是里面有个大坑。<br>@RolesAllowed 是JSR250定义的注解<br>配置方式不一样：@EnableGlobalMethodSecurity(jsr250Enabled=true)<br>JSR250注解还有 @DenyAll 和 @PermitAll 。</p>
+<h2 id="小坑"><a href="#小坑" class="headerlink" title="小坑"></a>小坑</h2><p>之前运行同事的代码，发现权限控制失效。区别在于使用@Secured，而@Secured对应的角色必须要有ROLE_前缀。</p>
+<p>通常在项目里面会实现UserDetails写user类，关键在于getAuthoritie()方法里面生成的role有没有前缀ROLE_。<br>使用@PreAuthorize是可以随意设置的<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@PreAuthorize</span>(<span class="string">"hasAuthority('ADMIN')"</span>)和<span class="meta">@PreAuthorize</span>(<span class="string">"hasAuthority('ROLE_ADMIN')"</span>)  <span class="comment">// 都可以，只要和实现的getAuthoritie里面的role对上</span></span><br><span class="line">就可以</span><br><span class="line"></span><br><span class="line"><span class="meta">@Secured</span>(&#123;<span class="string">"ADMIN"</span>&#125;)和<span class="meta">@Secured</span>(&#123;<span class="string">"ROLE_ADMIN"</span>&#125;) <span class="comment">// 实现的getAuthoritie里面的role都必须要有ROLE_前缀</span></span><br></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://skylrk.github.io/2018/09/01/SpringBoot多模块项目/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -455,7 +581,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -468,7 +594,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
